@@ -1,15 +1,10 @@
-fun isValidIdentifier(s: String): Boolean {
-    return when{
-        s !="" && (s[0] in 'a'..'z' || s[0] == '_')&&!s.contains(Regex("\\W")) -> true
-        else -> false
-    }
-}
+import java.util.*
 
 fun main(args: Array<String>) {
-    println(isValidIdentifier("name"))   // true
-    println(isValidIdentifier("_name"))  // true
-    println(isValidIdentifier("_12"))    // true
-    println(isValidIdentifier(""))       // false
-    println(isValidIdentifier("012"))    // false
-    println(isValidIdentifier("no$"))    // false
+    val scanner = Scanner(System.`in`)
+    var maxValue = Int.MIN_VALUE
+    repeat(4){
+        maxValue = Math.max(scanner.nextInt(),maxValue)
+    }
+    println(maxValue)
 }
