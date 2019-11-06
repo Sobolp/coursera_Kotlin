@@ -1,17 +1,19 @@
 import java.util.Scanner
 
-fun getD(a: Double, b: Double, c: Double) = b * b - 4 * a * c
+fun getD(a: Double, b: Double, c: Double) = b * b - 4.0 * a * c
 
-fun getRoot1(a: Double, b: Double, c: Double) = (-b + Math.sqrt(getD(a, b, c))) / 2 * a
+fun getRoot1(a: Double, b: Double, c: Double, d: Double) = (-b + Math.sqrt(d)) / 2.0 * a
 
-fun getRoot2(a: Double, b: Double, c: Double) = (-b - Math.sqrt(getD(a, b, c))) / 2 * a
+fun getRoot2(a: Double, b: Double, c: Double, d: Double) = (-b - Math.sqrt(d)) / 2.0 * a
 
 fun getRoots(a: Double, b: Double, c: Double) {
-    val r1 = getRoot1(a, b, c)
-    val r2 = getRoot2(a, b, c)
+    val d = getD(a, b, c)
+    val r1 = getRoot1(a, b, c, d)
+    val r2 = getRoot2(a, b, c, d)
     when {
         r1 < r2 -> print("$r1 $r2")
-        else ->  print("$r2 $r1")
+        r1 == r2 -> print("$r1")
+        else -> print("$r2 $r1")
     }
 }
 
